@@ -2,7 +2,7 @@ This application (Linux Command Interpeter - lci) is a userspace command
 interpreter that enables manipulation of memory and register contents at 
 their physical addresses.  The application includes the tecla library compiled 
 for ARM (see libtecla-copyright.txt).  The lci keeps a command history, 
-which can be navigated using up anddown arrow keys.
+which can be navigated using up and down arrow keys.
 
 The lci application supports scripting, which can be invoked via the "source"
 command (in interactive mode), or via piped input.
