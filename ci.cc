@@ -72,16 +72,16 @@ void ci::run()
     }
     else
     {
-			status = receive_cmd(ci_buf);
-			if(status == SUCCESS)
-			{
-				status = process_cmd(ci_buf);
-				process_status(ci_buf, status);
-				if(status == EXIT)
-				{
-					done = true;
-				}
-			}
+      status = receive_cmd(ci_buf);
+      if(status == SUCCESS)
+      {
+        status = process_cmd(ci_buf);
+        process_status(ci_buf, status);
+        if(status == EXIT)
+        {
+          done = true;
+        }
+      }
       else
       {
         done = true;
