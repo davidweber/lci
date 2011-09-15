@@ -26,8 +26,6 @@ OUTNAME_ARM = $(BINDIR_ARM)/$(OUTNAME)
 OBJS = $(SRCS:.c*=.o)
 TARBALL = ../../$(OUTNAME)_$(VERSION)-$(DATE).tar.gz
 PROMPT = [$(OUTNAME)] \# 
-#TOOLCHAIN = $(HOME)/omap/toolchain/arm-2009q1/bin
-#CROSS_COMPILE =$(TOOLCHAIN)/arm-none-linux-gnueabi-
 CC_ARM = $(CROSS_COMPILE)g++
 CFLAGS_ARM = -I. -I./libtecla/arm -L. -L./libtecla/arm -O2 -D VERSION=\""$(VERDATE)"\" \
              -D PROMPT=\""$(PROMPT)"\"
@@ -37,11 +35,6 @@ all: $(OUTNAME_ARM)
 
 $(OUTNAME_ARM) : $(OBJS) makefile
 	$(CC_ARM) $(CFLAGS_ARM) -D PROGRAM_NAME=\"${OUTNAME_ARM}\" $(OBJS) -o $(OUTNAME_ARM) $(LDFLAGS_ARM)
-
-tarball :
-	@rm -f $(TARBALL)
-	@tar cvzf $(TARBALL) ../../$(OUTNAME)
-	@mv $(TARBALL) ./
 
 .PHONY : clean
 
