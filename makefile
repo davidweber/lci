@@ -31,10 +31,17 @@ CFLAGS_ARM = -I. -I./libtecla/arm -L. -L./libtecla/arm -O2 -D VERSION=\""$(VERDA
              -D PROMPT=\""$(PROMPT)"\"
 LDFLAGS_ARM = -ltecla 
 
+ifdef DEBUG
+OPT_FLAGS = -g
+else
+OPT_FLAGS = -O2
+endif
+
 all: $(OUTNAME_ARM)
 
 $(OUTNAME_ARM) : $(OBJS) makefile
-	$(CC_ARM) $(CFLAGS_ARM) -D PROGRAM_NAME=\"${OUTNAME_ARM}\" $(OBJS) -o $(OUTNAME_ARM) $(LDFLAGS_ARM)
+	
+	$(CC_ARM) $(CFLAGS_ARM) $(OPT_FLAGS) -D PROGRAM_NAME=\"${OUTNAME_ARM}\" $(OBJS) -o $(OUTNAME_ARM) $(LDFLAGS_ARM)
 
 .PHONY : clean
 
